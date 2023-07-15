@@ -1,3 +1,8 @@
+Links:
+### Go official documentation
+- https://pkg.go.dev/strconv
+
+
 Go was created and designed to run on multiple cores and it allows the maximum utilization of growing system computing powers, complex infrastructures, and multi-core processors by enabling massive multithreading, concurrency, and performance under-pressure. Which is why most of the modern infrastructures in cloud computing are built using Go, e.g. Kubernetes, Docker etc.
 
 A pointer is a variable that points to the memory location of another variable that references the actual value.
@@ -40,6 +45,31 @@ the `main` function fires off a go-routine using the `go` keyword.
 Package level variables are variables that are global in a package. It is accessible to every function in the package and are defined at the top level of the package outside all functions.
 They can only be declared using `var or const` keywords.
 
+There are three (3) levels of scope:
+- Local
+  - Declarations within functions.
+  - Declarations within blocks of code (e.g. for, if-else).
+- Package
+  - Declarations outside all functions and can be used everywhere within the same package.
+- Global
+  - Global variables which are declarations outside all functions & consist of uppercase first letter, and can be used everywhere across all packages.
+
 Variables and functions defined outside any function can be accessed in all other files within the same package.
 
 To explicitly export a function in Go, you capitalize the first character in the function name.
+
+### Creating a MAP data structure in Go
+This is done using the `make` and `map` keywords, and ensuring that the keys and values are of same type as you have explicitly defined.
+```
+  var userData = make(map[string]string)
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+```
+
+### Creating an empty slice of strings
+`var mySlice = []string{}`
+
+### Creating an empty slice of maps
+`var mySliceOfMaps = make([]map[string]string)`
+When creating a slice with `make` keyword, you have to explicitly declare the size of the slice.
