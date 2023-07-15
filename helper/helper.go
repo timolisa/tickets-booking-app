@@ -1,6 +1,8 @@
 package helper
 
-import "strings"
+import (
+	"strings"
+)
 
 
 func ValidateUserInput(firstName string, lastName string, email string, userTickets int, availableTickets uint) (bool, bool, bool) {

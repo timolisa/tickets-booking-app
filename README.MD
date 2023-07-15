@@ -23,7 +23,11 @@ Blank identifiers are used to ignore a variable you don't want to use.
 
 In Go, you have to make unused variables explicit.
 
+By default: Code is executed sequentially, i.e. processing of tasks one after the other. To prevent this blocking behavior, you use GoRoutines to utilize concurrency.
 GoRoutines are concurrent functions that run while the rest of the program is executing.
+
+`go` keyword - starts a new thread in Go.
+A goroutine is a lightweight thread managed by the Go runtime.
 
 ```
 package main
@@ -98,3 +102,33 @@ Custom types are created in Go using the `type` keyword with the name you specif
 This creates a type called "UserData" based on the values specified in the structure. Structures give us flexibility over Maps as they allow the use of mixed data types and also define the fields of our Custom types.
 
 Structures are lightweight classes similar to classes in OOP languages like Java, C++, but they do not support inheritance.
+
+
+## Synchronizing Goroutines
+By default, the main goroutine does NOT wait for other goroutines to finish.
+```
+  var wg = sync.WaitGroup{}
+
+  wg.Add(n) - n is the number of goroutines.
+  wg.Wait()
+  wg.Done()
+```
+
+`WaitGroup` waits for the launched goroutine to finish.
+Package `sync` provides basic synchronization functionality.
+
+- `Add` method: sets the number of goroutines to wait for (It increases the counter by the provided number).
+- `Wait` method: Blocks until all the added threads are done executing, i.e. the wait counter is zero.
+- `Done` method: It decrements the wait counter by one, i.e. this is called by the goroutine to indicate that it has finished executing.
+
+Comparision between goroutine and threads in other languages:
+- Writing concurrent code is more complex.
+- More overhead in terms of memory and resources.
+
+Threads vs. Goroutines:
+- Creating thread is more expensive, and slow to startup.
+- Threads are heavyweight and requires more hardware resources.
+
+- Go uses the concept of `Green thread` which is an abstraction of an actual thread.
+- Goroutines are managed by the Go runtime, thus we are only interacting with these high level goroutines. Instead of OS Threads that are managed by the OS Kernel, and are hardware dependent.
+- Channels is a built-in function used for communication between goroutines, when they have shared data.
