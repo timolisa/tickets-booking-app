@@ -1,7 +1,8 @@
 Links:
-### Go official documentation
-- https://pkg.go.dev/strconv
 
+### Go official documentation
+
+- https://pkg.go.dev/strconv
 
 Go was created and designed to run on multiple cores and it allows the maximum utilization of growing system computing powers, complex infrastructures, and multi-core processors by enabling massive multithreading, concurrency, and performance under-pressure. Which is why most of the modern infrastructures in cloud computing are built using Go, e.g. Kubernetes, Docker etc.
 
@@ -46,6 +47,7 @@ Package level variables are variables that are global in a package. It is access
 They can only be declared using `var or const` keywords.
 
 There are three (3) levels of scope:
+
 - Local
   - Declarations within functions.
   - Declarations within blocks of code (e.g. for, if-else).
@@ -59,7 +61,9 @@ Variables and functions defined outside any function can be accessed in all othe
 To explicitly export a function in Go, you capitalize the first character in the function name.
 
 ### Creating a MAP data structure in Go
+
 This is done using the `make` and `map` keywords, and ensuring that the keys and values are of same type as you have explicitly defined.
+
 ```
   var userData = make(map[string]string)
 	userData["firstName"] = firstName
@@ -68,8 +72,29 @@ This is done using the `make` and `map` keywords, and ensuring that the keys and
 ```
 
 ### Creating an empty slice of strings
+
 `var mySlice = []string{}`
 
 ### Creating an empty slice of maps
+
 `var mySliceOfMaps = make([]map[string]string)`
 When creating a slice with `make` keyword, you have to explicitly declare the size of the slice.
+
+### How to save mixed data types in Go
+
+This can be done using a feature called `Struct` - i.e. Structure in Go.
+
+Custom types are created in Go using the `type` keyword with the name you specify.
+
+```
+  type UserData struct {
+	firstName string
+	lastName string
+	email string
+	numberOfTickets int
+	isSignedUpForNewsLetter bool
+}
+```
+This creates a type called "UserData" based on the values specified in the structure. Structures give us flexibility over Maps as they allow the use of mixed data types and also define the fields of our Custom types.
+
+Structures are lightweight classes similar to classes in OOP languages like Java, C++, but they do not support inheritance.
