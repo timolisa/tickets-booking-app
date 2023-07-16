@@ -23,6 +23,10 @@ Blank identifiers are used to ignore a variable you don't want to use.
 
 In Go, you have to make unused variables explicit.
 
+## How to create a module in Go.
+`go mod init example.com/hello` and the module path name
+This creates a Go mod file that tracks your code's dependencies.
+
 By default: Code is executed sequentially, i.e. processing of tasks one after the other. To prevent this blocking behavior, you use GoRoutines to utilize concurrency.
 GoRoutines are concurrent functions that run while the rest of the program is executing.
 
@@ -132,3 +136,5 @@ Threads vs. Goroutines:
 - Go uses the concept of `Green thread` which is an abstraction of an actual thread.
 - Goroutines are managed by the Go runtime, thus we are only interacting with these high level goroutines. Instead of OS Threads that are managed by the OS Kernel, and are hardware dependent.
 - Channels is a built-in function used for communication between goroutines, when they have shared data.
+
+Go code is grouped into packages and packages are grouped into modules.
