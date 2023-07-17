@@ -2,7 +2,8 @@ Links:
 
 ### Go official documentation
 
-- https://pkg.go.dev/strconv
+- https://pkg.go.dev/ (Go modules repository)
+- https://go.dev/doc/effective_go (Effective Go)
 
 Go was created and designed to run on multiple cores and it allows the maximum utilization of growing system computing powers, complex infrastructures, and multi-core processors by enabling massive multithreading, concurrency, and performance under-pressure. Which is why most of the modern infrastructures in cloud computing are built using Go, e.g. Kubernetes, Docker etc.
 
